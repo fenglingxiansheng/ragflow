@@ -177,7 +177,7 @@ func dispatchPDFBackend(ctx context.Context, db *gorm.DB, filename string, binar
 	// provider/selectors name PaddleOCR, or a bare tenant model UUID (in
 	// either parse_method or layout_recognizer) that resolves to a PaddleOCR
 	// OCR model. A bare UUID carries no provider spelling in the string, so it
-	// is resolved first — mirroring Python's get_composite_model_name_by_id +
+	// is resolved first - mirroring Python's get_composite_model_name_by_id +
 	// normalize_layout_recognizer chain, which converts the raw model UUID
 	// into model@instance@provider before choosing the dispatch path.
 	isPaddleOCRMatch := strings.EqualFold(strings.TrimSpace(method), "paddleocr") ||
@@ -588,7 +588,7 @@ func dispatchMinerUPDF(
 	parseMethod := mineruAPIParseMethod(getStringOr(setup, "mineru_parse_method", ""))
 	// MinerU's language is an OCR engine parameter, not the caption language:
 	// mineru_lang wins, then the family lang, then the engine's own default.
-	// That default used to arrive implicitly through defaultSetups() — which
+	// That default used to arrive implicitly through defaultSetups() - which
 	// also fed captions, so a knowledge base that never chose a language got
 	// Chinese captions (issue #20727). Keeping it here confines it to the engine.
 	lang := firstNonEmpty(getStringOr(setup, "mineru_lang", ""), getStringOr(setup, "lang", ""))
@@ -700,7 +700,7 @@ func appendMineruGeometryWarning(res *parser.ParseResult, err error) {
 // dispatch. modelID is the raw selector value: a bare tenant model UUID (no
 // "@") selects that exact model, a composite model@instance@provider name
 // resolves through the provider-instance chain, and an empty value falls back
-// to the tenant's first MinerU OCR model — mirroring Python's by_mineru,
+// to the tenant's first MinerU OCR model - mirroring Python's by_mineru,
 // which falls back to get_first_provider_model_name(tenant_id, "MinerU",
 // LLMType.OCR) for the named "mineru" selector.
 var resolveMinerUModelForDispatch = defaultResolveMinerUModelForDispatch
@@ -732,8 +732,8 @@ func defaultResolveMinerUModelForDispatch(ctx context.Context, db *gorm.DB, tena
 // Known limitation: composite names such as "some-model@instance@PaddleOCR.local"
 // (an explicit local selection) are not recognized here. Any value containing
 // "@" falls through to resolveTenantOCRModelByProvider("PaddleOCR"), which
-// returns the tenant's first active PaddleOCR OCR model — potentially the
-// local one — when both the local ("PaddleOCR.local") and the cloud
+// returns the tenant's first active PaddleOCR OCR model - potentially the
+// local one - when both the local ("PaddleOCR.local") and the cloud
 // ("PaddleOCR") providers are configured. The Python path behaves the same
 // way; if exact selection is required, pass the model's tenant-model UUID
 // instead.
@@ -1643,8 +1643,8 @@ func isMinerUDriver(driver modelModule.ModelDriver) bool {
 	return false
 }
 
-// isMinerULayoutModelID reports whether selector — a bare tenant model UUID
-// with no "model@instance@provider" composite hint — resolves to an active
+// isMinerULayoutModelID reports whether selector - a bare tenant model UUID
+// with no "model@instance@provider" composite hint - resolves to an active
 // OCR model driven by a MinerU provider (remote mineru.net or local mineru).
 // The raw UUID carries no provider spelling, so it must be resolved before
 // the dispatch path is chosen instead of falling through to the image2text
@@ -1676,8 +1676,8 @@ func isPaddleOCRDriver(driver modelModule.ModelDriver) bool {
 	return false
 }
 
-// isPaddleOCRLayoutModelID reports whether layout — a bare tenant model UUID
-// with no "model@instance@provider" composite hint — resolves to an active
+// isPaddleOCRLayoutModelID reports whether layout - a bare tenant model UUID
+// with no "model@instance@provider" composite hint - resolves to an active
 // OCR model driven by a PaddleOCR provider (cloud "PaddleOCR" or local
 // "PaddleOCR.local"). The web UI stores the tenant model UUID directly in
 // layout_recognizer, so the raw value carries no provider spelling; this
@@ -1724,8 +1724,8 @@ func defaultResolveSoMarkModelForDispatch(ctx context.Context, db *gorm.DB, tena
 	return driver, modelName, apiConfig, err
 }
 
-// isSoMarkLayoutModelID reports whether selector — a bare tenant model UUID
-// with no "model@instance@provider" composite hint — resolves to an active
+// isSoMarkLayoutModelID reports whether selector - a bare tenant model UUID
+// with no "model@instance@provider" composite hint - resolves to an active
 // OCR model driven by the SoMark provider. Mirrors the PaddleOCR/MinerU
 // probes: the raw UUID carries no provider spelling, so it must be resolved
 // before the dispatch path is chosen instead of falling through to the

@@ -39,7 +39,7 @@ import (
 // and returns a task_id, POST {base}/parse/async_check polls the task until
 // it reaches SUCCESS and carries the parsed block structure in
 // data.result.outputs.json. Authentication is a form field (api_key), not an
-// Authorization header, and self-hosted deployments may run without a key —
+// Authorization header, and self-hosted deployments may run without a key -
 // hence AllowEmptyAPIKey. The same protocol is implemented by the DeepDoc
 // parser path (internal/parser/parser/pdf_parser_somark.go); this driver
 // serves the model-provider surface (connection verification and the
