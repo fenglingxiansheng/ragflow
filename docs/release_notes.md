@@ -11,8 +11,6 @@ Key features, improvements and bug fixes in the latest releases.
 
 ## v1.0.0-rc2
 
-Released on Oct 16, 2026.
-
 1.0.0-rc2 is the second release candidate for v1.0.0. This release fixes several issues in rc1 and introduces new features and expanded support.
 
 ### Highlights
@@ -25,8 +23,6 @@ Released on Oct 16, 2026.
 7. Added Docker images for the arm64 architecture.
 
 ## v1.0.0-rc1
-
-Released on Sep 29, 2026.
 
 RAGFlow v1.0.0-rc1 is a preview release of v1.0.0. This release marks a comprehensive rewrite of RAGFlow in Go, delivering a substantial reduction in system resource consumption and replacing the previous heavyweight deployment model with a lightweight architecture.
 
@@ -134,7 +130,7 @@ Released on Aug 28, 2026.
 Released on Aug 19, 2026.
 
 ### New features
-- Brand new document level and dataset level knowledge compilation, supporting Wiki, Graph, Tree, Page Index, Mindmap, Timeline, and To Skills ([#16777](https://github.com/infiniflow/ragflow/pull/16777), [#17546](https://github.com/infiniflow/ragflow/pull/17546), [#16797](https://github.com/infiniflow/ragflow/pull/16797), [#16749](https://github.com/infiniflow/ragflow/pull/16749), [#16899](https://github.com/infiniflow/ragflow/pull/16899), [#17996](https://github.com/infiniflow/ragflow/pull/17996))
+- Brand new document level and dataset level knowledge compilation, supporting Wiki, Graph, Tree, Page Index, Mind Map, Timeline, and To Skills ([#16777](https://github.com/infiniflow/ragflow/pull/16777), [#17546](https://github.com/infiniflow/ragflow/pull/17546), [#16797](https://github.com/infiniflow/ragflow/pull/16797), [#16749](https://github.com/infiniflow/ragflow/pull/16749), [#16899](https://github.com/infiniflow/ragflow/pull/16899), [#17996](https://github.com/infiniflow/ragflow/pull/17996))
    - The previous GraphRAG and RAPTOR features have been deprecated and are no longer available in the UI. Their replacements, Graph and Tree, are now integrated into Knowledge Compilation. Previously generated GraphRAG and RAPTOR content remains searchable.
 - Brand new Agentic RAG with four thinking modes when answering - Low, Medium, High, and Ultra ([#18303](https://github.com/infiniflow/ragflow/pull/18303), [#18138](https://github.com/infiniflow/ragflow/pull/18138), [#17342](https://github.com/infiniflow/ragflow/pull/17342), [#17444](https://github.com/infiniflow/ragflow/pull/17444))
 
@@ -346,6 +342,7 @@ Released on May 26, 2026.
 
 ### New features
 
+- Agent: Adds a **Browser** component that enables AI to autonomously navigate and interact with web pages. [#14888](https://github.com/infiniflow/ragflow/pull/14888)
 
 ### Improvements
 
@@ -1266,7 +1263,7 @@ From this release onwards, **service_config.yaml.template** replaces **service_c
 This approach eliminates the need to manually update **service_config.yaml** after making changes to **.env**, facilitating dynamic environment configurations.
 
 :::danger IMPORTANT
-Ensure that you [upgrade **both** your code **and** Docker image to this release](./administrator/upgrade_and_migration/upgrading.mdx#upgrade-ragflow-to-given-release) before trying this new approach.
+Ensure that you [upgrade **both** your code **and** Docker image to this release](./administrator/upgrade_ragflow.mdx#upgrade-ragflow-to-given-release) before trying this new approach.
 :::
 
 ### API changes
@@ -1344,13 +1341,13 @@ The default Docker image edition is `nightly-slim`. The following list clarifies
 - `nightly`: The full edition of the most recent tested Docker image.
 - `v0.12.0`: The full edition of the most recent **officially released** Docker image.
 
-See [Upgrade RAGFlow](./administrator/upgrade_and_migration/upgrading.mdx) for instructions on upgrading.
+See [Upgrade RAGFlow](./administrator/upgrade_ragflow.mdx) for instructions on upgrading.
 
 ### Documentation
 
 #### Added documents
 
-- [Upgrade RAGFlow](./administrator/upgrade_and_migration/upgrading.mdx)
+- [Upgrade RAGFlow](./administrator/upgrade_ragflow.mdx)
 
 ## v0.11.0
 
